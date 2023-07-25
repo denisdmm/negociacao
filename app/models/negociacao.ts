@@ -5,8 +5,8 @@ export class Negociacao {
 
     constructor(
         private _data:Date,  // não precisa criar o get, pois ela so pode ser instanciada na criação e nao sera mais modificada
-        private readonly quantidade:number, 
-        private _valor:number){
+        public readonly quantidade:number, 
+        public readonly valor:number){
 
      }
 
@@ -14,12 +14,9 @@ export class Negociacao {
         const data = new Date(this._data.getTime()); // programação defenciva para que nao se possa alterar a data apos ela se criada
         return data;
     }
-    get valor(): number{
-        return this._valor;
-    }
 
     get volume(): number{
-        return this.quantidade * this._valor;
+        return this.quantidade * this.valor;
     }
 
 }
